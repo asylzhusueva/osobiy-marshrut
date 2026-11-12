@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Особый маршрут — навигатор для родителей</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf8f2;--card:#fff;--ink:#1d2b2a;--muted:#5a6b69;--brand:#1f6f68;--brand-ink:#fff;--accent:#f0a93b;--line:#e3ddd0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a19;--card:#1b2625;--ink:#eef3f1;--muted:#a3b3b0;--brand:#4fb8ae;--brand-ink:#0c1f1d;--accent:#f0b24f;--line:#2c3b39}}
+:root[data-theme="dark"]{--bg:#121a19;--card:#1b2625;--ink:#eef3f1;--muted:#a3b3b0;--brand:#4fb8ae;--brand-ink:#0c1f1d;--accent:#f0b24f;--line:#2c3b39}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,"Segoe UI",Arial,sans-serif;line-height:1.6}
+a{color:var(--brand)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.logo{font-weight:800;text-decoration:none;color:var(--ink);font-size:1.1rem}
+.logo span{color:var(--accent)}
+nav{display:flex;align-items:center;gap:16px;font-size:.92rem}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--brand)}
+@media(max-width:700px){nav a.l{display:none}}
+.lang{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:4px 12px;font:inherit;cursor:pointer}
+.hero{padding:64px 0 48px}
+.kick{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 14px;font-size:.85rem;color:var(--muted)}
+h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.12;margin:16px 0;font-weight:800;max-width:15em}
+.lead{font-size:1.15rem;color:var(--muted);max-width:36em}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:600;text-decoration:none;border:2px solid var(--brand)}
+.btn.p{background:var(--brand);color:var(--brand-ink)}
+.btn.s{color:var(--brand)}
+section{padding:44px 0}
+h2{font-size:1.7rem;margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.num{font-size:2rem;font-weight:800;color:var(--brand)}
+.step b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#1d2b2a;margin-bottom:8px}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px}
+.empty{border:2px dashed var(--line);border-radius:16px;padding:28px;text-align:center;color:var(--muted)}
+form{display:grid;gap:12px;max-width:560px}
+label{font-size:.9rem;font-weight:600;display:grid;gap:4px}
+input,select,textarea{font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);width:100%}
+ul.chk{padding-left:20px;margin:0}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="#top">Особый <span>маршрут</span></a>
+  <nav>
+    <a class="l" href="#how" data-ru="Как это работает" data-en="How it works">Как это работает</a>
+    <a class="l" href="#catalog" data-ru="Каталог" data-en="Catalog">Каталог</a>
+    <a class="l" href="#join" data-ru="Для специалистов" data-en="For specialists">Для специалистов</a>
+    <button class="lang" id="lang" type="button" aria-label="Language">EN</button>
+  </nav>
+</div></header>
+
+<main id="top">
+<div class="wrap hero">
+  <span class="kick" data-ru="Пилотная версия · Москва" data-en="Pilot version · Moscow">Пилотная версия · Москва</span>
+  <h1 data-ru="Навигатор для родителей детей с особыми образовательными потребностями" data-en="A navigator for parents of children with special educational needs">Навигатор для родителей детей с особыми образовательными потребностями</h1>
+  <p class="lead" data-ru="Проверенные специалисты, инклюзивные центры и поддержка в одном месте. Для семей — бесплатно." data-en="Verified specialists, inclusive centers and support in one place. Free for families.">Проверенные специалисты, инклюзивные центры и поддержка в одном месте. Для семей — бесплатно.</p>
+  <div class="btns">
+    <a class="btn p" href="#catalog" data-ru="Найти помощь" data-en="Find support">Найти помощь</a>
+    <a class="btn s" href="#join" data-ru="Предложить организацию" data-en="Suggest an organization">Предложить организацию</a>
+  </div>
+</div>
+
+<section><div class="wrap">
+  <h2 data-ru="Почему это важно" data-en="Why it matters">Почему это важно</h2>
+  <div class="grid">
+    <div class="card"><div class="num">≈240 <span data-ru="млн" data-en="million">млн</span></div><div data-ru="детей в мире живут с инвалидностью — каждый десятый ребёнок." data-en="children worldwide live with a disability — one in ten.">детей в мире живут с инвалидностью — каждый десятый ребёнок.</div></div>
+    <div class="card"><div class="num">+49%</div><div data-ru="чаще дети с инвалидностью ни разу не ходили в школу." data-en="more likely never to have attended school among children with disabilities.">чаще дети с инвалидностью ни разу не ходили в школу.</div></div>
+    <div class="card"><div class="num">−42%</div><div data-ru="реже у них есть базовые навыки чтения и счёта." data-en="less likely to have foundational reading and numeracy skills.">реже у них есть базовые навыки чтения и счёта.</div></div>
+  </div>
+  <p class="note">UNICEF (2021). <a href="https://www.unicef.org/press-releases/nearly-240-million-children-disabilities-around-world-unicefs-most-comprehensive" target="_blank" rel="noopener">Nearly 240 million children with disabilities…</a></p>
+  <p data-ru="Информация о доступной помощи разрознена: семьям приходится собирать её по крупицам. «Особый маршрут» собирает её в один понятный каталог." data-en="Information about available help is scattered, and families piece it together on their own. Special Route gathers it into one clear catalog.">Информация о доступной помощи разрознена: семьям приходится собирать её по крупицам. «Особый маршрут» собирает её в один понятный каталог.</p>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <h2 data-ru="Как это работает" data-en="How it works">Как это работает</h2>
+  <div class="grid">
+    <div class="card step"><b>1</b><div data-ru="Выберите возраст ребёнка и тип поддержки." data-en="Choose your child’s age and the type of support.">Выберите возраст ребёнка и тип поддержки.</div></div>
+    <div class="card step"><b>2</b><div data-ru="Посмотрите проверенные организации и специалистов рядом с вами." data-en="Browse verified organizations and specialists near you.">Посмотрите проверенные организации и специалистов рядом с вами.</div></div>
+    <div class="card step"><b>3</b><div data-ru="Свяжитесь напрямую или оставьте заявку." data-en="Contact them directly or leave a request.">Свяжитесь напрямую или оставьте заявку.</div></div>
+  </div>
+</div></section>
+
+<section id="catalog"><div class="wrap">
+  <h2 data-ru="Каталог" data-en="Catalog">Каталог</h2>
+  <div class="empty" data-ru="Каталог пополняется: первые организации появятся здесь после проверки. Знаете хорошего специалиста или центр? Предложите его ниже." data-en="The catalog is being built: the first organizations will appear here after verification. Know a good specialist or center? Suggest it below.">Каталог пополняется: первые организации появятся здесь после проверки. Знаете хорошего специалиста или центр? Предложите его ниже.</div>
+</div></section>
+
+<section id="join"><div class="wrap">
+  <h2 data-ru="Для специалистов и центров" data-en="For specialists and centers">Для специалистов и центров</h2>
+  <div class="grid">
+    <div class="card">
+      <b data-ru="Как мы проверяем" data-en="How we verify">Как мы проверяем</b>
+      <ul class="chk">
+        <li data-ru="квалификация и документы специалиста" data-en="specialist qualifications and documents">квалификация и документы специалиста</li>
+        <li data-ru="подтверждённые контакты и адрес" data-en="confirmed contacts and address">подтверждённые контакты и адрес</li>
+        <li data-ru="отзывы родителей" data-en="parent feedback">отзывы родителей</li>
+        <li data-ru="порядок в списке не зависит от оплаты" data-en="ranking is independent of payment">порядок в списке не зависит от оплаты</li>
+      </ul>
+    </div>
+    <div class="card">
+      <form id="f">
+        <label><span data-ru="Название организации или имя специалиста" data-en="Organization or specialist name">Название организации или имя специалиста</span><input name="n" required></label>
+        <label><span data-ru="Тип помощи" data-en="Type of support">Тип помощи</span>
+          <select name="t"><option>Дефектолог / Special educator</option><option>Логопед / Speech therapist</option><option>Психолог / Psychologist</option><option>Инклюзивный центр / Inclusive center</option><option>Другое / Other</option></select></label>
+        <label><span data-ru="Город, сайт или телефон" data-en="City, website or phone">Город, сайт или телефон</span><input name="c" required></label>
+        <button class="btn p" type="submit" data-ru="Отправить предложение" data-en="Send suggestion">Отправить предложение</button>
+      </form>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 data-ru="О проекте" data-en="About">О проекте</h2>
+  <p data-ru="Проект начала Асыль Жусуева, студентка МПГУ (специальное дефектологическое образование). Сейчас идёт пилот в Москве. Цель — сделать так, чтобы поддержка для семей была понятной, доступной и не зависела от случайных рекомендаций." data-en="The project was started by Asyl Zhusueva, a student at Moscow Pedagogical State University (special education). A pilot is currently running in Moscow. The goal is to make support clear and accessible for families, not dependent on chance recommendations.">Проект начала Асыль Жусуева, студентка МПГУ (специальное дефектологическое образование). Сейчас идёт пилот в Москве. Цель — сделать так, чтобы поддержка для семей была понятной, доступной и не зависела от случайных рекомендаций.</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div><span data-ru="Контакты:" data-en="Contact:">Контакты:</span> <a href="mailto:asylzusueva6@gmail.com">asylzusueva6@gmail.com</a></div>
+  <div data-ru="Мы не собираем персональные данные через сайт: форма открывает письмо в вашей почте." data-en="We do not collect personal data on this site: the form opens an email in your own mail app.">Мы не собираем персональные данные через сайт: форма открывает письмо в вашей почте.</div>
+</div></footer>
+
+<script>
+var els=document.querySelectorAll('[data-ru]'),btn=document.getElementById('lang');
+function setLang(l){els.forEach(function(e){e.textContent=e.dataset[l]});document.documentElement.lang=l;btn.textContent=l==='ru'?'EN':'RU';try{localStorage.setItem('lang',l)}catch(e){}}
+btn.addEventListener('click',function(){setLang(document.documentElement.lang==='ru'?'en':'ru')});
+try{var s=localStorage.getItem('lang');if(s==='en')setLang('en')}catch(e){}
+document.getElementById('f').addEventListener('submit',function(ev){ev.preventDefault();var f=ev.target;
+var body='Название: '+f.n.value+'\nТип: '+f.t.value+'\nГород/сайт/телефон: '+f.c.value;
+location.href='mailto:asylzusueva6@gmail.com?subject='+encodeURIComponent('Особый маршрут: предложение в каталог')+'&body='+encodeURIComponent(body)});
+</script>
+</body>
+</html>
