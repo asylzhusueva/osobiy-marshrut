@@ -1,1 +1,289 @@
+/* Особый маршрут — стили для поиска, фильтров и «Моего маршрута».
+   Используются те же CSS-переменные, что уже заданы в вашем <style>:
+   --bg --card --ink --muted --brand --brand-ink --accent --line
+
+   Куда вставить: в конец существующего блока <style> в <head>
+   или отдельным файлом <link rel="stylesheet" href="assets/catalog.css">
+*/
+
+.om-hidden {
+  display: none !important;
+}
+
+.om-muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- панель фильтров ---------- */
+
+.om-bar {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.om-bar-row {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .om-bar-row {
+    grid-template-columns: 2fr 1fr 1fr 110px auto;
+  }
+}
+
+.om-field {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--ink);
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.om-field:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 1px;
+}
+
+.om-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.om-chip {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--brand);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.om-chip:hover {
+  border-color: var(--brand);
+}
+
+.om-chip-on {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--brand-ink);
+}
+
+.om-count {
+  margin: 12px 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ---------- кнопки ---------- */
+
+.om-btn {
+  border: 1px solid var(--brand);
+  background: var(--brand);
+  color: var(--brand-ink);
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.om-btn:hover {
+  filter: brightness(1.06);
+}
+
+.om-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.om-btn-ghost {
+  background: transparent;
+  color: var(--brand);
+}
+
+.om-btn-ghost:hover {
+  background: var(--bg);
+}
+
+.om-btn-on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #1d2b2a;
+}
+
+.om-save {
+  margin-top: 14px;
+}
+
+.om-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+/* ---------- панель «Мой маршрут» ---------- */
+
+.om-route {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.om-route h3 {
+  margin: 0 0 4px;
+}
+
+.om-route-list {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.om-route-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.om-route-num {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: var(--brand-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.om-route-item > div {
+  flex: 1 1 auto;
+}
+
+.om-route-del {
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  line-height: 1;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.om-route-del:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+/* ---------- режимы доступности ---------- */
+
+html.a11y-large {
+  font-size: 120%;
+}
+
+html.a11y-contrast {
+  --ink: #000;
+  --muted: #1a1a1a;
+  --line: #000;
+  --bg: #fff;
+  --card: #fff;
+}
+
+html.a11y-contrast a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.om-tools {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.om-tool {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.om-tool-on {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--brand-ink);
+}
+
+/* ---------- печать маршрута ---------- */
+
+#route-print {
+  display: none;
+}
+
+.om-print-item {
+  break-inside: avoid;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.om-print-item p {
+  margin: 4px 0;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #route-print,
+  #route-print * {
+    visibility: visible;
+  }
+
+  #route-print {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .om-btn,
+  .om-chip {
+    transition: none;
+  }
+}
 
