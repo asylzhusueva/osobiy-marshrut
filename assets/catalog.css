@@ -286,4 +286,22 @@ html.a11y-contrast a {
     transition: none;
   }
 }
+details.card summary {
+  cursor: pointer;
+  list-style: none;
+}
 
+details.card summary::-webkit-details-marker {
+  display: none;
+}
+
+details.card summary::after {
+  content: "+";
+  float: right;
+  color: var(--brand);
+  font-weight: 700;
+}
+
+details.card[open] summary::after {
+  content: "–";
+}
