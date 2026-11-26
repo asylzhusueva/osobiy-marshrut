@@ -47,6 +47,7 @@ input,select,textarea{font:inherit;padding:10px 12px;border-radius:10px;border:1
 ul.chk{padding-left:20px;margin:0}
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.9rem}
 </style>
+ <link rel="stylesheet" href="assets/catalog.css">
 </head>
 <body>
 <header><div class="wrap bar">
@@ -280,13 +281,26 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
 <div data-ru="Сам сайт не собирает персональные данные. Ссылка «Предложить организацию» открывает письмо в вашем почтовом приложении. Родительский опрос размещён в Google Forms; поле email необязательное, и оставленный адрес будет отправлен вместе с ответами." data-en="The website itself does not collect personal data. The “Suggest an organization” link opens an email in your mail app. The parent survey is hosted in Google Forms. The email field is optional; if you provide an address, it will be submitted with your responses.">Сам сайт не собирает персональные данные. Ссылка «Предложить организацию» открывает письмо в вашем почтовом приложении. Родительский опрос размещён в Google Forms; поле email необязательное, и оставленный адрес будет отправлен вместе с ответами.</div></div></footer>
 
 <script>
-var els=document.querySelectorAll('[data-ru]'),btn=document.getElementById('lang');
-function setLang(l){els.forEach(function(e){e.textContent=e.dataset[l]});document.documentElement.lang=l;btn.textContent=l==='ru'?'EN':'RU';try{localStorage.setItem('lang',l)}catch(e){}}
+var btn=document.getElementById('lang');
+function setLang(l){
+  document.querySelectorAll('[data-ru]').forEach(function(e){e.textContent=e.dataset[l]});
+  document.querySelectorAll('[data-ru-ph]').forEach(function(e){
+    e.setAttribute('placeholder', l==='en' ? e.dataset.enPh : e.dataset.ruPh);
+  });
+  document.querySelectorAll('[data-ru-al]').forEach(function(e){
+    e.setAttribute('aria-label', l==='en' ? e.dataset.enAl : e.dataset.ruAl);
+  });
+  document.documentElement.lang=l;
+  btn.textContent=l==='ru'?'EN':'RU';
+  try{localStorage.setItem('lang',l)}catch(e){}
+  document.dispatchEvent(new CustomEvent('om:lang',{detail:l}));
+}
 btn.addEventListener('click',function(){setLang(document.documentElement.lang==='ru'?'en':'ru')});
 try{var s=localStorage.getItem('lang');if(s==='en')setLang('en')}catch(e){}
 document.getElementById('f').addEventListener('submit',function(ev){ev.preventDefault();var f=ev.target;
 var body='Название: '+f.n.value+'\nТип: '+f.t.value+'\nГород/сайт/телефон: '+f.c.value;
 location.href='mailto:asylzusueva6@gmail.com?subject='+encodeURIComponent('Особый маршрут: предложение в каталог')+'&body='+encodeURIComponent(body)});
 </script>
+  <script src="assets/catalog.js"></script>
 </body>
 </html>
