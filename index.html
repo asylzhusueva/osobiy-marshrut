@@ -17,6 +17,13 @@
 :root{--bg:#fbf8f2;--card:#fff;--ink:#1d2b2a;--muted:#5a6b69;--brand:#1f6f68;--brand-ink:#fff;--accent:#f0a93b;--line:#e3ddd0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a19;--card:#1b2625;--ink:#eef3f1;--muted:#a3b3b0;--brand:#4fb8ae;--brand-ink:#0c1f1d;--accent:#f0b24f;--line:#2c3b39}}
 :root[data-theme="dark"]{--bg:#121a19;--card:#1b2625;--ink:#eef3f1;--muted:#a3b3b0;--brand:#4fb8ae;--brand-ink:#0c1f1d;--accent:#f0b24f;--line:#2c3b39}
+ document.getElementById('report').addEventListener('submit', function (ev) {
+  ev.preventDefault();
+  var f = ev.target;
+  var body = 'Организация: ' + f.o.value + '\nЧто изменилось: ' + f.m.value + '\nКонтакт: ' + (f.c.value || 'не указан');
+  location.href = 'mailto:asylzusueva6@gmail.com?subject=' +
+    encodeURIComponent('Особый маршрут: уточнение данных') + '&body=' + encodeURIComponent(body);
+});
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,"Segoe UI",Arial,sans-serif;line-height:1.6}
@@ -66,7 +73,40 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <button class="lang" id="lang" type="button" aria-label="Language">EN</button>
   </nav>
 </div></header>
-
+<div class="card">
+  <b data-ru="Сообщить об изменении" data-en="Report a change">Сообщить об изменении</b>
+  <p class="note" data-ru="Если адрес, телефон или условия изменились — напишите, мы проверим и обновим каталог."
+     data-en="If an address, phone number or conditions changed, tell us and we will verify and update.">
+    Если адрес, телефон или условия изменились — напишите, мы проверим и обновим каталог.</p>
+  <form action="https://formspree.io/f/https://formspree.io/f/mgakqllj" method="POST">
+  <input class="om-field" type="text" name="organization" required
+         data-ru-ph="Организация" data-en-ph="Organization">
+  <textarea class="om-field" name="message" rows="3" required minlength="10"
+            data-ru-ph="Что изменилось" data-en-ph="What changed"></textarea>
+  <input class="om-field" type="email" name="_replyto"
+         data-ru-ph="Ваш e-mail (необязательно)" data-en-ph="Your email (optional)">
+  <input type="hidden" name="_subject" value="Особый маршрут: уточнение данных">
+  <div class="om-btn-row">
+    <button class="om-btn" type="submit"><span data-ru="Отправить" data-en="Send">Отправить</span></button>
+  </div>
+</form>
+ <p class="note" data-ru="Нажимая «Отправить», вы соглашаетесь на обработку указанных данных для обратной связи. Пожалуйста, не указывайте имя ребёнка и диагноз."
+   data-en="By submitting, you agree to the processing of the provided data for feedback purposes. Please do not include the child's name or diagnosis.">
+  Нажимая «Отправить», вы соглашаетесь на обработку указанных данных для обратной связи. Пожалуйста, не указывайте имя ребёнка и диагноз.</p>
+    <label><span data-ru="Организация" data-en="Organization">Организация</span>
+      <input class="om-field" name="o" required>
+    </label>
+    <label><span data-ru="Что изменилось" data-en="What changed">Что изменилось</span>
+      <textarea class="om-field" name="m" rows="3" required minlength="10"></textarea>
+    </label>
+    <label><span data-ru="Контакт для уточнения (необязательно)" data-en="Contact (optional)">Контакт для уточнения (необязательно)</span>
+      <input class="om-field" name="c">
+    </label>
+    <div class="om-btn-row">
+      <button class="om-btn" type="submit"><span data-ru="Отправить письмо" data-en="Send email">Отправить письмо</span></button>
+    </div>
+  </form>
+</div>
 <main id="top">
 <div class="wrap hero">
   <span class="kick" data-ru="Пилотная версия · Москва" data-en="Pilot version · Moscow">Пилотная версия · Москва</span>
@@ -305,7 +345,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <div style="height:10px;background:#e3ddd0;border-radius:6px;overflow:hidden"><div style="width:33%;height:100%;background:#1f6f68"></div></div>
   </div>
   <p data-ru="7 из 12 искали помощь дольше месяца, из них 5 дольше трёх месяцев. 11 из 12 оценили единый каталог на 4–5 из 5." data-en="7 of 12 searched for help for more than a month, 5 of them for over three months. 11 of 12 rated a single catalog 4–5 out of 5.">7 из 12 искали помощь дольше месяца, из них 5 дольше трёх месяцев. 11 из 12 оценили единый каталог на 4–5 из 5.</p>
-  <p><a href="ВСТАВЬТЕ_ССЫЛКУ" target="_blank" rel="noopener" data-ru="Пройти опрос (3 минуты, анонимно)" data-en="Take the survey (3 minutes, anonymous)">Пройти опрос (3 минуты, анонимно)</a></p>
+  <p><a href="https://forms.gle/DDDPxhcRuimxTaWK6" target="_blank" rel="noopener" data-ru="Пройти опрос (3 минуты, анонимно)" data-en="Take the survey (3 minutes, anonymous)">Пройти опрос (3 минуты, анонимно)</a></p>
 </section>
   <section id="library">
   <div class="wrap">
