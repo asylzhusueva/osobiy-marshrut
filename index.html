@@ -183,6 +183,29 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     data-age-min="4" data-age-max="8" data-search="групповая программа диагностическое занятие">
 </article>
 </div>
+ <div class="om-route" id="route">
+  <h3>
+    <span data-ru="Мой маршрут" data-en="My route">Мой маршрут</span>
+    · <span id="route-count">0</span>
+  </h3>
+  <p class="om-muted">
+    <span data-ru="Отмечайте места кнопкой «+ В маршрут». Список сохранится в этом браузере — его можно распечатать и взять с собой на приём."
+          data-en="Mark places with «+ Add to route». The list is saved in this browser and can be printed for your visit.">
+      Отмечайте места кнопкой «+ В маршрут». Список сохранится в этом браузере — его можно распечатать и взять с собой на приём.
+    </span>
+  </p>
+  <div class="om-btn-row">
+    <button id="print-btn" class="om-btn" type="button">
+      <span data-ru="Распечатать маршрут" data-en="Print route">Распечатать маршрут</span>
+    </button>
+    <button id="clear-btn" class="om-btn om-btn-ghost" type="button">
+      <span data-ru="Очистить" data-en="Clear">Очистить</span>
+    </button>
+    <button id="share-btn" class="om-btn om-btn-ghost" type="button">
+      <span data-ru="Поделиться каталогом" data-en="Share catalog">Поделиться каталогом</span>
+    </button>
+  </div>
+</div>
 </div></section>
 <div style="width:100%;height:450px;overflow:hidden;border-radius:16px;">
 <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5fd80a9a4d7dda465474ad580f74e5d1378472efde8ef8653be5f6458a5079dd&amp;width=100%25&amp;height=450&amp;lang=ru_RU&amp;scroll=true"></script>
@@ -295,5 +318,7 @@ var body='Название: '+f.n.value+'\nТип: '+f.t.value+'\nГород/с�
 location.href='mailto:asylzusueva6@gmail.com?subject='+encodeURIComponent('Особый маршрут: предложение в каталог')+'&body='+encodeURIComponent(body)});
 </script>
   <script src="assets/catalog.js"></script>
+ <div id="route-print"></div>
+ <script src="assets/tools.js"></script>
 </body>
 </html>
