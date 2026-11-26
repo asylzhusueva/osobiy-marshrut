@@ -94,7 +94,31 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
 <section id="catalog"><div class="wrap">
   <h2 data-ru="Каталог" data-en="Catalog">Каталог</h2>
 <p class="note" data-ru="Пилотный каталог: 10 организаций, 12 адресов. Сведения сверены по официальным страницам 13 ноября 2026 года. Перед визитом позвоните и уточните, подходит ли место для вашего запроса, какие услуги доступны и нужна ли запись." data-en="Pilot catalog: 10 organizations, 12 addresses. Information was checked against official pages on November 13, 2026. Call before visiting to confirm whether the location suits your needs, which services are available, and whether an appointment is required.">Пилотный каталог: 10 организаций, 12 адресов. Сведения сверены по официальным страницам 13 ноября 2026 года. Перед визитом позвоните и уточните, подходит ли место для вашего запроса, какие услуги доступны и нужна ли запись.</p>
-
+<div class="om-bar" id="filters">
+  <div class="om-bar-row">
+    <input id="q" class="om-field" type="search"
+           placeholder="Поиск: название, адрес, услуга…"
+           data-ru-ph="Поиск: название, адрес, услуга…"
+           data-en-ph="Search by name, address or service…"
+           data-ru-al="Поиск по каталогу" data-en-al="Catalog search">
+    <select id="f-okrug" class="om-field" data-ru-al="Округ" data-en-al="Administrative district">
+      <option value="" data-ru="Все округа" data-en="All districts">Все округа</option>
+    </select>
+    <select id="f-cost" class="om-field" data-ru-al="Условия" data-en-al="Cost">
+      <option value="" data-ru="Любые условия" data-en="Any cost">Любые условия</option>
+      <option value="free" data-ru="Есть бесплатные" data-en="Some services free">Есть бесплатные</option>
+      <option value="paid" data-ru="Платные" data-en="Paid">Платные</option>
+    </select>
+    <input id="f-age" class="om-field" type="number" min="0" max="23" step="1"
+           placeholder="Возраст" data-ru-ph="Возраст" data-en-ph="Age"
+           data-ru-al="Возраст ребёнка" data-en-al="Child age">
+    <button id="f-reset" class="om-btn om-btn-ghost" type="button">
+      <span data-ru="Сбросить" data-en="Reset">Сбросить</span>
+    </button>
+  </div>
+  <div class="om-chips" id="f-tags"></div>
+  <p class="om-count" id="f-count" aria-live="polite"></p>
+</div>
   <article class="card" data-org="frc-kashenkin"
     data-okrug="СВАО" data-okrug-en="North-Eastern" data-district="Марфино"
     data-tags="Диагностика,Консультации,Психологическая помощь,Педагогическая помощь"
